@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import socket
 import threading
 import time
@@ -12,7 +13,7 @@ import subprocess
 HEADER = 64
 PORT = 1234
 #Change SERVER to the computer's IPV4. You don't need to change this if the server is running on windows
-SERVER = socket.gethostbyname(socket.gethostname())
+SERVER = str(input("Enter the server's IPV4: "))
 ADDR = (SERVER, PORT)
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -492,7 +493,7 @@ def sendStartingMessages(conn, addr):
 #listens for connection attempts and starts connections from clients
 def start():
     
-    print(f"[LISTENING] Server is listening on {SERVER}")
+    print(f"[LISTENING] Server is listening on {SERVER}:{PORT}")
 
     global clients
     global connectionsAvailable
